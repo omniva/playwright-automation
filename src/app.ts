@@ -52,25 +52,7 @@ const getWordFromTarget = async (): Promise<string> => {
  * @param title The title string
  */
 const logWordToSheets = async (word: string) => {
-  const SHEET_ID = '10-jQHX8bUbxQTNOuHfY3mssKY0Pqqwtbg5L59kqY3z4';
-
-  const auth = await google.auth.getClient({
-    scopes: ['https://www.googleapis.com/auth/spreadsheets']
-  });
-
-  const sheets = google.sheets({ version: 'v4', auth });
-  const date = dayjs().format('DD-MM-YYYY');
-
-  await sheets.spreadsheets.values.append({
-    spreadsheetId: SHEET_ID,
-    valueInputOption: 'USER_ENTERED',
-    range: 'A1:A1',
-    requestBody: {
-      values: [
-        [date, word]
-      ]
-    }
-  });
+  console.log(word);
 
 }
 
